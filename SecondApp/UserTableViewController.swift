@@ -29,11 +29,13 @@ class UserTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserTableViewCell
         
-        cell.nameLabel.text = friends[indexPath.row].name
-        cell.messageLabel.text = friends[indexPath.row].message
+        let row = friends[indexPath.row]
+        
+        cell.nameLabel.text = row.name
+        cell.messageLabel.text = row.message
         cell.profileImageView.backgroundColor = .systemGray4
         
-        let image = friends[indexPath.row].profile_image
+        let image = row.profile_image
         
         if let image {
             let url = URL(string: image)
