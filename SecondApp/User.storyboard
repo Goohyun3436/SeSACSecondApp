@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -47,17 +47,32 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhW-mz-NEX">
+                                            <rect key="frame" x="16" y="8" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="J3x-gk-DZr"/>
+                                                <constraint firstAttribute="width" constant="50" id="gfL-hb-Um0"/>
+                                            </constraints>
+                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="hand.thumbsup.fill" catalog="system">
+                                                <color key="baseForegroundColor" systemColor="systemPinkColor"/>
+                                            </buttonConfiguration>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="J6N-9i-9EM" firstAttribute="leading" secondItem="MVp-z5-lfn" secondAttribute="leading" constant="16" id="6Rp-Cd-YRO"/>
+                                        <constraint firstItem="IhW-mz-NEX" firstAttribute="leading" secondItem="J6N-9i-9EM" secondAttribute="leading" id="Jq9-cl-gZl"/>
                                         <constraint firstItem="1cZ-wi-wXJ" firstAttribute="centerY" secondItem="MVp-z5-lfn" secondAttribute="centerY" id="P50-nj-X4N"/>
                                         <constraint firstAttribute="bottom" secondItem="J6N-9i-9EM" secondAttribute="bottom" constant="8" id="Qfj-fa-rI3"/>
                                         <constraint firstItem="1cZ-wi-wXJ" firstAttribute="leading" secondItem="J6N-9i-9EM" secondAttribute="trailing" constant="16" id="T9g-ih-LuH"/>
                                         <constraint firstItem="J6N-9i-9EM" firstAttribute="top" secondItem="MVp-z5-lfn" secondAttribute="top" constant="8" id="bh3-RJ-gvW"/>
                                         <constraint firstAttribute="trailing" secondItem="1cZ-wi-wXJ" secondAttribute="trailing" constant="16" id="kzK-Zd-pZ8"/>
+                                        <constraint firstItem="IhW-mz-NEX" firstAttribute="top" secondItem="J6N-9i-9EM" secondAttribute="top" id="wFJ-Xx-HgS"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="likeButton" destination="IhW-mz-NEX" id="yow-Uv-F7U"/>
                                     <outlet property="messageLabel" destination="qcZ-XB-aPg" id="Duz-dJ-R7Q"/>
                                     <outlet property="nameLabel" destination="vfx-Nc-N1v" id="Czv-mY-bGW"/>
                                     <outlet property="profileImageView" destination="J6N-9i-9EM" id="K9k-is-v8T"/>
@@ -76,8 +91,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

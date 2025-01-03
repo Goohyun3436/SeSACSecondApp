@@ -44,6 +44,9 @@ class UserTableViewController: UITableViewController {
             cell.profileImageView.image = UIImage(systemName: "person.fill")
         }
         
+        let likeImage = row.like ? "hand.thumbsup.fill" : "hand.thumbsdown.fill"
+        cell.likeButton.setImage(UIImage(systemName: likeImage), for: .normal)
+        
         return cell
     }
     
