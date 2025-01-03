@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 struct Friend {
     let name: String
@@ -15,11 +16,7 @@ struct Friend {
 
 class UserTableViewController: UITableViewController {
     
-    let friends: [Friend] = [
-        .init(name: "고래밥", message: "고래밥 냠냠", profile_image: "star"),
-        .init(name: "칙촉", message: "행복한 하루", profile_image: "pencil"),
-        .init(name: "카스타드", message: "배고파", profile_image: "star.fill")
-    ]
+    let friends = FriendsInfo().list
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +31,16 @@ class UserTableViewController: UITableViewController {
         
         cell.nameLabel.text = friends[indexPath.row].name
         cell.messageLabel.text = friends[indexPath.row].message
-        cell.profileImageView.image = UIImage(systemName: friends[indexPath.row].profile_image)
+        cell.profileImageView.backgroundColor = .systemGray4
+        
+        let image = friends[indexPath.row].profile_image
+        
+        if let image {
+            let url = URL(string: image)
+            cell.profileImageView.kf.setImage(with: url)
+        } else {
+            cell.profileImageView.image = UIImage(systemName: "person.fill")
+        }
         
         return cell
     }
