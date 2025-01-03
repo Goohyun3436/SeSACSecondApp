@@ -16,10 +16,15 @@ struct Friend {
 
 class UserTableViewController: UITableViewController {
     
-    let friends = FriendsInfo().list
+    var friends = FriendsInfo().list
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    @objc func likeButtonTapped(_ sender: UIButton) {
+        friends[sender.tag].like.toggle()
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,6 +51,8 @@ class UserTableViewController: UITableViewController {
         
         let likeImage = row.like ? "hand.thumbsup.fill" : "hand.thumbsdown.fill"
         cell.likeButton.setImage(UIImage(systemName: likeImage), for: .normal)
+        cell.likeButton.tag = indexPath.row
+        cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
         
         return cell
     }
